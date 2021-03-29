@@ -1,7 +1,29 @@
 # Getting Started with Create React App
 
+## Description
+User interface for the project https://github.com/jpujol880807/pipelines.
+This is the usual project made in create-react-app.
+I used typescript and ant design as library component.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Install
+First install yarn
+```shell script
+npm i -g yarn
+```
+Then create a file .env.development.local and set the port for running the react project like in the example.
+Also you must set in the `REACT_APP_API_URL` the address where the backend application is running.
+```dotenv
+PORT=3001
+REACT_APP_API_URL='http://localhost:3000'
+``` 
+Notice that the port where react is running should be different from the port of backend pipelines application
+Then run 
+```shell script
+yarn start
+```
+And the development server should be running. You can see it by visiting http://localhost:3000 if your environment matches the example.
 ## Available Scripts
 
 In the project directory, you can run:
