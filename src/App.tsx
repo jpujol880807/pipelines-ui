@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Layout, Menu} from 'antd';
+import {Content, Footer, Header} from 'antd/lib/layout/layout';
+import {PipelinesTable} from './components/PipelinesTable';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import DevicesTable from './components/DevicesTable';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+          <div className="App">
+              <Layout style={{height:"100vh"}}>
+                  <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+                      <div className="logo" />
+                      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+                      </Menu>
+                  </Header>
+                  <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
+                      <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
+                          <Route exact={true} path={'/'} component={PipelinesTable}/>
+                          <Route path={'/pipeline/:pipelineId'} component={DevicesTable}/>
+                      </div>
+                  </Content>
+                  <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+              </Layout>
+          </div>
+      </Router>
   );
 }
 
